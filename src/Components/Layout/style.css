@@ -1,0 +1,46 @@
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+@media screen and (max-width: 30px) {
+  .icon {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .title {
+    display: none;
+  }
+}
+
+.logo {
+  width: '100%';
+  height: 30px;
+  margin-top: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  background-image: url('../../assets/qw-logo.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+
+.layout {
+  min-height: 100vh;
+}

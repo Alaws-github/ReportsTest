@@ -1,0 +1,238 @@
+.logo-qw-mobile {
+  display: none;
+}
+
+.left-panel-custom {
+  padding: 2rem;
+}
+
+.right-panel-custom {
+  display: flex;
+  overflow: auto;
+}
+
+.left-panel-custom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 200, 120, 0.9),
+    rgba(40, 120, 240, 0.9)
+  );
+}
+
+.without-plan:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 200, 120, 0.9),
+    rgba(40, 120, 240, 0.9)
+  );
+}
+
+.without-plan {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* background: url(/src/assets/onboarding/getting-started.png) no-repeat 0 0 fixed; */
+  background-size: 100%;
+}
+
+.plan-icon {
+  background: url(/src/assets/registration/icon-background.svg) no-repeat 0 0;
+  background-size: 100%;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+}
+
+@media screen and (min-width: 640px) {
+  .left-panel-custom {
+    width: 100%;
+  }
+
+  .next-center-icon {
+    display: none;
+  }
+
+  .right-panel-custom {
+    width: 100%;
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .left-panel-custom {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    color: white;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    background: url(/src/assets/onboarding/getting-started.png) no-repeat 0 0
+      fixed;
+    background-size: 100%;
+  }
+
+  .right-panel-custom {
+    width: 50%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .next-center-icon {
+    display: block !important;
+  }
+}
+
+.logo-qw-custom {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  white-space: nowrap;
+  color: white;
+  z-index: 10;
+}
+
+.btn-view-plans {
+  width: 25%;
+}
+
+/* small */
+@media screen and (max-width: 768px) {
+  .btn-view-plans {
+    width: 100%;
+    height: '3rem';
+  }
+
+  .white-circle-icon {
+    z-index: 10;
+    position: absolute;
+    top: 12%;
+    font-size: 8rem;
+  }
+
+  .new-here-question-icon {
+    z-index: 10;
+    position: absolute;
+    top: 15%;
+    font-size: 6rem;
+  }
+
+  .new-here-card {
+    width: 80%;
+    height: 60%;
+    border-radius: 25px;
+  }
+
+  .new-here-card-content {
+    z-index: 100;
+    margin-top: 3rem;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+  }
+
+  .next-center-icon {
+    display: none;
+  }
+}
+
+/* medium */
+@media screen and (min-width: 768px) {
+  .btn-view-plans {
+    width: 100%;
+    height: '3rem';
+  }
+
+  .white-circle-icon {
+    z-index: 10;
+    position: absolute;
+    top: 5%;
+    font-size: 15rem;
+  }
+
+  .new-here-question-icon {
+    z-index: 10;
+    position: absolute;
+    top: 8%;
+    font-size: 8rem;
+  }
+
+  .new-here-card {
+    width: 60%;
+    height: 60%;
+    border-radius: 25px;
+  }
+
+  .new-here-card-content {
+    z-index: 100;
+    margin-top: 3rem;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+
+  .new-here-card-title {
+    margin-top: 1rem;
+  }
+
+  .next-center-icon {
+    display: block;
+  }
+}
+
+/* large */
+@media screen and (min-width: 1024px) {
+  .btn-view-plans {
+    width: 25%;
+    height: '3rem';
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.new-here-card::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.new-here-card {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

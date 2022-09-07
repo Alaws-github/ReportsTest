@@ -1,0 +1,18 @@
+.custom-header {
+  background-color: white !important;
+  color: #707070 !important;
+  font-size: 15px;
+}
+
+.custom-col {
+  background-color: white !important;
+}
+.dot .ant-badge-status-dot {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  vertical-align: middle;
+  border-radius: 50%;
+} 

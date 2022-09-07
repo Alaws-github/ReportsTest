@@ -1,0 +1,10 @@
+.markdown-preview-container,
+.test-case-preview-container {
+  font-size: 0.9rem !important;
+  line-height: 1.3rem !important;
+  font-family: 'Lato', sans-serif !important;
+}
+
+.clickable-container:focus {
+  outline: none !important;
+}

@@ -1,0 +1,168 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.bg-image {
+  background-image: url('/src/assets/minions-right.svg'),
+    url('/src/assets/undraw_join_of2w.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-size: 20%, 30%;
+  background-position: bottom right, bottom left;
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.delete-btn {
+  color: #00000073 !important;
+}
+
+.delete-btn:hover {
+  color: #f5222d !important;
+}
+
+.hr-s {
+  height: 1px;
+  background-color: #f2f3f4;
+  border: none;
+}
+
+.qw-table-row:hover {
+  background-color: #fafafa;
+  transition: 0.3s;
+}
+
+.active-row {
+  background-color: #d6dbdf;
+  transition: 0.3s;
+}
+
+.active-row:hover {
+  background-color: #d6dbdf;
+  transition: 0.3s;
+}
+
+.selectedRow {
+  background-color: #d6dbdf;
+}
+.ant-table-tbody > .selectedRow:hover > td {
+  background-color: #d6dbdf !important;
+}
+
+.fade-top {
+  position: relative;
+}
+
+.fade-top::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1) 90%
+  );
+  width: 100%;
+  height: 4em;
+}
+
+.fade-bottom {
+  position: relative;
+}
+
+.fade-bottom::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1) 90%
+  );
+  width: 100%;
+  height: 4em;
+}
+
+:root {
+  /* Overrides the border radius setting in the theme. */
+  --ck-border-radius: 4px !important;
+}
+
+.parent {
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+tr.drop-over-downward td {
+  border-bottom: 2px dashed #1890ff;
+}
+
+tr.drop-over-upward td {
+  border-top: 2px dashed #1890ff;
+}
