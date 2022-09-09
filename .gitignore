@@ -33,7 +33,7 @@ amplify/backend/awscloudformation
 amplify/backend/.temp
 build/
 dist/
-node_modules/
+
 awsconfiguration.json
 amplifyconfiguration.json
 amplify-build-config.json
