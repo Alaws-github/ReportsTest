@@ -53,4 +53,11 @@ export class LoginPage extends BasePage {
   async waitForPageLoad() {
     await this.page.waitForNavigation({ waitUntil: "domcontentloaded" })
   }
+
+
+  async delay(time) {
+    return new Promise(function(resolve) { 
+        setTimeout(resolve, time)
+    });
+ }
 }

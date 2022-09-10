@@ -14,11 +14,15 @@ if (!baseUrl || !['dev', 'stg', 'prod'].includes(baseUrl)) {
 
 }
 
+
+
 const config: PlaywrightTestConfig = {
+  timeout: 60000 
+    ,globalTimeout: 700000,
   reporter: [['list']],
   use: {
     baseURL: urls[baseUrl],
-    headless: true,
+    headless: false,
     video: 'on-first-retry',
     screenshot: 'only-on-failure',
   },

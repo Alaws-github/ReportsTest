@@ -16,6 +16,12 @@ export  class OverviewPage extends BasePage{
         .click();
      }
 
+     get reportsTab() { return this.page.locator('.ant-menu-item', { hasText: 'Reports' }) }
+     async clickReportsTab(){
+      await this.reportsTab
+      .click();
+   }
+
      
 }
 

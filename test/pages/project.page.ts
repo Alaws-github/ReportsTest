@@ -29,6 +29,7 @@ export class ProjectPage extends BasePage {
     get titleOnMenuBar() { return this.page.locator('div[role="button"]:has-text("Test Automation")') }
     get existingProject() { return this.page.locator('.ant-card-meta-title', { hasText: 'qwat-1224' }) }
     get existingProjectTwo() { return this.page.locator('.ant-card-meta-title', { hasText: 'testone' }) }
+    get existingProjectJiraQA() { return this.page.locator('.ant-card-meta-title', { hasText: 'jira QA' }) }
 
     get projectsInWorkspace() { return this.page.locator('.ant-list-item') }
     get projectTitleOnWorkspacePage() { return this.page.locator('.ant-list-item') }
@@ -99,5 +100,10 @@ export class ProjectPage extends BasePage {
         await this.page.waitForSelector('.ant-notification-notice');
     }
 
+  //This is used to click on Jira QA Project
+  async clickOnJiraQAProject() {
+    await this.existingProjectJiraQA.click();
+   // await this.page.waitForSelector('form.ant-form')
+}
 
 }

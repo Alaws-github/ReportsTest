@@ -22,4 +22,3 @@ npm run test:e2e -- --project=edge # runs tests on specific browsers[chrome|fire
 npm run test:e2e -- --grep @login # runs tagged tests
 
 npm run test:e2e:local -- --headed #run chrome with browser showing
-```
