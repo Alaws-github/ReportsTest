@@ -28,7 +28,7 @@ export class ReportPage extends BasePage {
     }
     
 
-     randomword = 'Auto'
+     randomword = ''
 
     async enterReportname() {
      this.randomword= (Math.random() + 1).toString(36).substring(7);
