@@ -2,6 +2,7 @@ import { test as base, expect } from '@playwright/test'
 import { LoginPage } from '../../pages/login.page'
 import { ProjectPage } from '../../pages/project.page'
 import { usersData } from '../../data/users.data'
+import { report } from '../../data/generateReportsdata'
 import { OverviewPage } from '../../pages/overview'
 import { ReportPage } from '../../pages/report.page'
 
@@ -36,14 +37,14 @@ const test = base.extend<{
 })
 
 test.describe('Admin can see Generate Report button @report-tab', () => {
-  test.only('Admin can see generate report button', async ({
+  test.only('Admin can see generate report button and generate a report', async ({
     loginPage,
     projectPage,
     overviewPage,
     reportPage,
   }) => {
     //Test case-
-    //As an Admin user, I should be able to see button to create new test suite
+    //As an Admin user, I should be able to see button to generate report
 
     // Logs in the user
     await loginPage.login(
@@ -57,29 +58,46 @@ test.describe('Admin can see Generate Report button @report-tab', () => {
     //Verify that user can click on the Generate Report button(CTA)
     await reportPage.clickGenerateReportButton();
 
+    //Verify that the generate report modal appears
     const modalTitle = await reportPage.verifyGenerateReportModalAppears()
     expect(modalTitle).toContain('Generate Report')
 
-    await reportPage.enterReportname()
+    //Enter a report name and selects Test run
+    await reportPage.enterReportname(report.name)
     await reportPage.clickATestRun()
     await loginPage.delay(1000)
     
+    //Generate a report
     await reportPage.clickGenerateButton()
     await loginPage.delay(5000)
 
+    //Verifying the generated report title
     const modalTitle1 = await reportPage.verifyReportTitle()
     console.log(modalTitle1)
-    expect(modalTitle1).toContain(reportPage.randomword)
+    expect(modalTitle1).toContain(report.name)
 
+    //Verifying the Quality Meter Sections appears
     const qualityMeter = await reportPage.verifyQualityMeterSection()
     expect(qualityMeter).toContain('QualityMeter')
 
+    //Verifying the Execution Summary Section appears
     const executionSummarySection = await reportPage.verifyExecutionSummarySection();
     expect(executionSummarySection).toContain('Execution Summary')
 
+    //Verifying the Suites Summary Section Appears
     const suitesSummarySection = await reportPage.verifySuitesSummarySection();
     expect(suitesSummarySection).toContain('Suites Summary')
+
+    //Goto Report Tab
+    await overviewPage.clickReportsTab()
+
+    //Delete the Report
+    await loginPage.delay(1000)
+    await reportPage.clickDeleteReportButton();
+    await loginPage.delay(5000)
   })
+
+
 
 })
 

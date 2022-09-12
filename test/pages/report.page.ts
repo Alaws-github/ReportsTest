@@ -15,32 +15,35 @@ export class ReportPage extends BasePage {
     get qualityMeterSection() { return this.page.locator('(//div[contains(text(),"QualityMeter")])[1]') }
     get executionSummarySection() { return this.page.locator('(//div[contains(text(),"Execution Summary")])[1]') }
     get suitesSummarySection() { return this.page.locator('(//span[normalize-space()="Suites Summary"])[1]') }
-    
+    get deleteReprot() { return this.page.locator('span[aria-label="delete"]') }
+    get deleteReprotConfirmation() { return this.page.locator('(//span[normalize-space()="OK"])[1]') }
+
+
     //Click the Generate report button
     async clickGenerateReportButton() {
       await this.generateReportButton.waitFor()
       await this.generateReportButton.click()
     }
 
+    //Gets the Generate report modal title
    async verifyGenerateReportModalAppears(){
     
       return await this.generateReportModalAppears.allInnerTexts()
     }
     
-
-     randomword = 'Auto'
-
-    async enterReportname() {
-     this.randomword= (Math.random() + 1).toString(36).substring(7);
-      await this.clearThenSetValue(this.reportName, this.randomword)
+    //Enter the Report Name
+    async enterReportname(reportname) {
+      await this.clearThenSetValue(this.reportName, reportname)
     
     }
 
+    //Select the "QA" from the dropdown
     async clickATestRun() {
       await this.selectATestRun.click()
       await this.selectATestRunOption.click()
     }
 
+    //Click the Generate report button
    async clickGenerateButton(){
     
     await this.generateButton.click()
@@ -52,28 +55,39 @@ export class ReportPage extends BasePage {
 
   }
 
+  //Getting the Report title
    async verifyReportTitle(){
     
     return await this.reportTitle.innerText()
    }
 
+   //Getting the Quality Meter Section
    async verifyQualityMeterSection(){
     
     return await this.qualityMeterSection.innerText()
    }
-
+   
+   //Getting the Execution Summary Section 
    async verifyExecutionSummarySection(){
     
     return await this.executionSummarySection.innerText()
    }
 
+   //Getting the Suites Summary Section
    async verifySuitesSummarySection(){
     
     return await this.suitesSummarySection.innerText()
    }
 
-   }
+   //Click on Delete Report button
+  //Click the Generate report button
+  async clickDeleteReportButton(){
     
+    await this.deleteReprot.click()
+    await this.deleteReprotConfirmation.click()
+   }
+   }
+  
   
  
   
