@@ -429,7 +429,7 @@ test.describe('editor can edit test suite titles/descriptions @test-suite-create
 // testing this file
     //assert the change has been properly performed
     const testSuiteTitle = await testSuitePage.getTestSuiteTitle()
-    expect(testSuiteTitle).toContain(newTitle)
+    expect(testSuiteTitle).toContain(newTitle).pop
   })
 })
 2
