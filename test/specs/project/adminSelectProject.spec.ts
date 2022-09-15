@@ -37,7 +37,9 @@ test.describe('Admin select the Jira QA Project', () => {
         let projectCount = await projectPage.countProjectsInWorkspace();
 
         // Clicks the Jira QA Project
-        await projectPage.clickOnJiraQAProject();
+        expect(projectPage.existingProjectJiraQA.allInnerTexts()).toContain('jira QA')
+        await projectPage.existingProjectJiraQA.click()
+        //await projectPage.clickOnJiraQAProject();
 
     })
 });

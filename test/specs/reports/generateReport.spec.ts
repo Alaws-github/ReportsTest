@@ -59,8 +59,7 @@ test.describe('Admin can see Generate Report button @report-tab', () => {
     await reportPage.clickGenerateReportButton();
 
     //Verify that the generate report modal appears
-    const modalTitle = await reportPage.verifyGenerateReportModalAppears()
-    expect(modalTitle).toContain('Generate Report')
+    await expect(await reportPage.generateReportModalAppears.allInnerTexts()).toContain('Generate Report')
 
     //Enter a report name and selects Test run
     await reportPage.enterReportname(report.name)
@@ -77,16 +76,14 @@ test.describe('Admin can see Generate Report button @report-tab', () => {
     expect(modalTitle1).toContain(report.name)
 
     //Verifying the Quality Meter Sections appears
-    const qualityMeter = await reportPage.verifyQualityMeterSection()
-    expect(qualityMeter).toContain('QualityMeter')
+   expect(await reportPage.qualityMeterSection.allInnerTexts()).toContain('QualityMeter');
 
     //Verifying the Execution Summary Section appears
-    const executionSummarySection = await reportPage.verifyExecutionSummarySection();
-    expect(executionSummarySection).toContain('Execution Summary')
+   expect(await reportPage.executionSummarySection.allInnerTexts()).toContain('Execution Summary');
 
+    
     //Verifying the Suites Summary Section Appears
-    const suitesSummarySection = await reportPage.verifySuitesSummarySection();
-    expect(suitesSummarySection).toContain('Suites Summary')
+    expect(await reportPage.suitesSummarySection.allInnerTexts()).toContain('Suites Summary');
 
     //Goto Report Tab
     await overviewPage.clickReportsTab()

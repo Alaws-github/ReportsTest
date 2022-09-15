@@ -10,13 +10,13 @@ export class ReportPage extends BasePage {
     get reportName() { return this.page.locator('#report-form_reportName') }
     get selectATestRun() { return this.page.locator('#report-form_testRun') }
     get selectATestRunOption() { return this.page.locator('//div/div[4]/div/div') }
-    get generateButton() { return this.page.locator('//span[normalize-space()="Generate"]') }
-    get reportTitle() { return this.page.locator('//main/div/div/div[1]/div/div/span') }
-    get qualityMeterSection() { return this.page.locator('(//div[contains(text(),"QualityMeter")])[1]') }
-    get executionSummarySection() { return this.page.locator('(//div[contains(text(),"Execution Summary")])[1]') }
-    get suitesSummarySection() { return this.page.locator('(//span[normalize-space()="Suites Summary"])[1]') }
-    get deleteReprot() { return this.page.locator('span[aria-label="delete"]') }
-    get deleteReprotConfirmation() { return this.page.locator('(//span[normalize-space()="OK"])[1]') }
+    get generateButton() { return this.page.locator('.ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-row > .ant-btn') }
+    get reportTitle() { return this.page.locator('div > .ant-page-header > .ant-page-header-heading > .ant-page-header-heading-left > .ant-page-header-heading-title') }
+    get qualityMeterSection() { return this.page.locator('.ant-col:nth-child(1) > .ant-card > .ant-card-head > .ant-card-head-wrapper > .ant-card-head-title') }
+    get executionSummarySection() { return this.page.locator('.ant-col:nth-child(2) > .ant-card > .ant-card-head > .ant-card-head-wrapper > .ant-card-head-title') }
+    get suitesSummarySection() { return this.page.locator('.ant-card > .ant-card-head > .ant-card-head-wrapper > .ant-card-head-title > .ant-typography:nth-child(1)') }
+    get deleteReprot() { return this.page.locator('.ant-space-item > a > .ant-tooltip-open > svg > path:nth-child(1)') }
+    get deleteReprotConfirmation() { return this.page.locator('.ant-popover-inner > .ant-popover-inner-content > .ant-popover-buttons > .ant-btn-primary > span') }
 
 
     //Click the Generate report button
@@ -24,17 +24,10 @@ export class ReportPage extends BasePage {
       await this.generateReportButton.waitFor()
       await this.generateReportButton.click()
     }
-
-    //Gets the Generate report modal title
-   async verifyGenerateReportModalAppears(){
-    
-      return await this.generateReportModalAppears.allInnerTexts()
-    }
     
     //Enter the Report Name
     async enterReportname(reportname) {
       await this.clearThenSetValue(this.reportName, reportname)
-    
     }
 
     //Select the "QA" from the dropdown
@@ -45,44 +38,17 @@ export class ReportPage extends BasePage {
 
     //Click the Generate report button
    async clickGenerateButton(){
-    
     await this.generateButton.click()
    }
 
-  async verifyGenerateReportModalDisappears(){
-    //return await this.generateReportModalAppears.allInnerTexts()
-
-
-  }
-
   //Getting the Report title
    async verifyReportTitle(){
-    
     return await this.reportTitle.innerText()
    }
 
-   //Getting the Quality Meter Section
-   async verifyQualityMeterSection(){
-    
-    return await this.qualityMeterSection.innerText()
-   }
-   
-   //Getting the Execution Summary Section 
-   async verifyExecutionSummarySection(){
-    
-    return await this.executionSummarySection.innerText()
-   }
 
-   //Getting the Suites Summary Section
-   async verifySuitesSummarySection(){
-    
-    return await this.suitesSummarySection.innerText()
-   }
-
-   //Click on Delete Report button
-  //Click the Generate report button
+   //Click on Delete Report button and delete the report
   async clickDeleteReportButton(){
-    
     await this.deleteReprot.click()
     await this.deleteReprotConfirmation.click()
    }
