@@ -56,7 +56,9 @@ test.describe('Admin can see Generate Report button @report-tab', () => {
     await overviewPage.clickReportsTab()
 
     //Verify that user can click on the Generate Report button(CTA)
-    await reportPage.clickGenerateReportButton();
+    await reportPage.generateReportButton.waitFor()
+    await reportPage.generateReportButton.click()
+    //await reportPage.clickGenerateReportButton();
 
     //Verify that the generate report modal appears
     const modalTitle = await reportPage.verifyGenerateReportModalAppears()
@@ -68,13 +70,14 @@ test.describe('Admin can see Generate Report button @report-tab', () => {
     await loginPage.delay(1000)
     
     //Generate a report
-    await reportPage.clickGenerateButton()
+    //await reportPage.clickGenerateButton()
+    await reportPage.generateButton.click()
     await loginPage.delay(5000)
 
     //Verifying the generated report title
-    const modalTitle1 = await reportPage.verifyReportTitle()
-    console.log(modalTitle1)
-    expect(modalTitle1).toContain(report.name)
+    //const modalTitle1 = await reportPage.reportTitle
+    //expect(modalTitle1).toContain(report.name)
+    expect(reportPage.reportTitle).toContainText('AutoReports')
 
     //Verifying the Quality Meter Sections appears
     const qualityMeter = await reportPage.verifyQualityMeterSection()
@@ -88,12 +91,30 @@ test.describe('Admin can see Generate Report button @report-tab', () => {
     const suitesSummarySection = await reportPage.verifySuitesSummarySection();
     expect(suitesSummarySection).toContain('Suites Summary')
 
+    //This is to Generate a link to share the report
+     await reportPage.shareReportBtn.click()
+     await reportPage.shareReportLinkBtn.click()
+     await expect (reportPage.shareReportAlert).toContainText('You have successfully generated a shareable report link.')
+     await reportPage.shareReportCloseTab.click()
+     
+
     //Goto Report Tab
     await overviewPage.clickReportsTab()
+    
+    //Edit Report 
+    await reportPage.editReportBtn.click()
+    await reportPage.editReportName(report.rename)
+    await reportPage.editReportSave.click()
+    
+    //Verifying the generated report title
+    const modalTitle2 = await reportPage.verifyNewReportTitle()
+    expect(modalTitle2).toContain(report.rename)
 
     //Delete the Report
     await loginPage.delay(1000)
-    await reportPage.clickDeleteReportButton();
+    await reportPage.deleteReprot.click()
+    await reportPage.deleteReprotConfirmation.click()
+    //await reportPage.clickDeleteReportButton();
     await loginPage.delay(5000)
   })
 

@@ -1,2 +1,4 @@
 export const report = {
-    name: 'AutoReports'}
+     name: 'AutoReports',
+     rename: 'QA'
+}
