@@ -1,6 +1,6 @@
 export const usersData = {
     adminUser: {
-        username: 'alawrence+2@qualityworkscg.com',
+        username: 'alawrence+101@qualityworkscg.com',
         password: 'Andy@8050440'
     },
     editorUser: {
