@@ -15,9 +15,9 @@ export class ReportPage extends BasePage {
     get qualityMeterSection() { return this.page.locator('.ant-col:nth-child(1) > .ant-card > .ant-card-head > .ant-card-head-wrapper > .ant-card-head-title') }
     get executionSummarySection() { return this.page.locator('.ant-col:nth-child(2) > .ant-card > .ant-card-head > .ant-card-head-wrapper > .ant-card-head-title') }
     get suitesSummarySection() { return this.page.locator('.ant-card > .ant-card-head > .ant-card-head-wrapper > .ant-card-head-title > .ant-typography:nth-child(1)') }
-    get deleteReprot() { return this.page.locator('.ant-space-item > a > .ant-tooltip-open > svg > path:nth-child(1)') }
-    get deleteReprotConfirmation() { return this.page.locator('.ant-popover-inner > .ant-popover-inner-content > .ant-popover-buttons > .ant-btn-primary > span') }
-
+    get editReprot() { return this.page.locator('.ant-space-item > .ant-tooltip-open > .anticon > svg > path:nth-child(2)') }
+    get deleteBtn() { return this.page.locator('[aria-label="delete"] >> nth=0') }
+    get confrimDeletion() { return this.page.locator('button', { hasText: 'OK' }) }
 
     //Click the Generate report button
     async clickGenerateReportButton() {
@@ -49,8 +49,8 @@ export class ReportPage extends BasePage {
 
    //Click on Delete Report button and delete the report
   async clickDeleteReportButton(){
-    await this.deleteReprot.click()
-    await this.deleteReprotConfirmation.click()
+    await this.deleteBtn.click()
+    await this.confrimDeletion.click()
    }
    }
   
