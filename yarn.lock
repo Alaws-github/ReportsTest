@@ -5129,12 +5129,13 @@
     "mkdirp" "^1.0.4"
     "rimraf" "^3.0.2"
 
-"@playwright/test@^1.22.1":
-  "integrity" "sha512-8ouMBUboYslHom41W8bnSEn0TwlAMHhCACwOZeuiAgzukj7KobpZ+UBwrGE0jJ0UblJbKAQNRHXL+z7sDSkb6g=="
-  "resolved" "https://registry.npmjs.org/@playwright/test/-/test-1.22.1.tgz"
-  "version" "1.22.1"
+"@playwright/test@^1.25.2":
+  "integrity" "sha512-6qPznIR4Fw02OMbqXUPMG6bFFg1hDVNEdihKy0t9K0dmRbus1DyP5Q5XFQhGwEHQkLG5hrSfBuu9CW/foqhQHQ=="
+  "resolved" "https://registry.npmjs.org/@playwright/test/-/test-1.25.2.tgz"
+  "version" "1.25.2"
   dependencies:
-    "playwright-core" "1.22.1"
+    "@types/node" "*"
+    "playwright-core" "1.25.2"
 
 "@pmmmwh/react-refresh-webpack-plugin@0.4.3":
   "integrity" "sha512-br5Qwvh8D2OQqSXpd1g/xqXKnK0r+Jz6qVKBbWmpUcrbGOxUrf39V5oZ1876084CGn18uMdR5uvPqBv9UqtBjQ=="
@@ -14150,6 +14151,11 @@
   "resolved" "https://registry.npmjs.org/playwright-core/-/playwright-core-1.22.1.tgz"
   "version" "1.22.1"
 
+"playwright-core@1.25.2":
+  "integrity" "sha512-0yTbUE9lIddkEpLHL3u8PoCL+pWiZtj5A/j3U7YoNjcmKKDGBnCrgHJMzwd2J5vy6l28q4ki3JIuz7McLHhl1A=="
+  "resolved" "https://registry.npmjs.org/playwright-core/-/playwright-core-1.25.2.tgz"
+  "version" "1.25.2"
+
 "playwright@^1.22.1":
   "integrity" "sha512-pn4dvphQdL3zTgI+xfqkTL3HK1xbtQz+zjJxzyhwKLDxMNuAH7/NCm75auWbYLyssdnvApznujwrQuJvqXTKUw=="
   "resolved" "https://registry.npmjs.org/playwright/-/playwright-1.22.1.tgz"
@@ -18847,10 +18853,20 @@
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz"
   "version" "3.4.0"
 
-"uuid@^8.3.0", "uuid@^8.3.2":
+"uuid@^8.3.0":
   "integrity" "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   "version" "8.3.2"
+
+"uuid@^8.3.2":
+  "integrity" "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
+  "resolved" "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
+  "version" "8.3.2"
+
+"uuid@^9.0.0":
+  "integrity" "sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg=="
+  "resolved" "https://registry.npmjs.org/uuid/-/uuid-9.0.0.tgz"
+  "version" "9.0.0"
 
 "uuid@3.3.2":
   "integrity" "sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA=="
