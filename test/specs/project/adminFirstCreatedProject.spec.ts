@@ -43,7 +43,6 @@ test.describe('Admin Project Creation @projectCreation', () => {
         registerPage,
         projectPage,
     }) => {
-        test.slow();
 
         await registerPage.clickViewPlan();
 

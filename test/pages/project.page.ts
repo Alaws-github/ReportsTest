@@ -27,16 +27,17 @@ export class ProjectPage extends BasePage {
     get profileBtn() { return this.page.locator('.ant-menu-submenu>.ant-menu-submenu-title>.ant-avatar-circle') }
     get firstSignUpOkBtn() { return this.page.locator('button:has-text("OK")') }
     get titleOnMenuBar() { return this.page.locator('div[role="button"]:has-text("Test Automation")') }
-    get existingProject() { return this.page.locator('.ant-card-meta-title', { hasText: 'qwat-1224' }) }
-    get existingProjectTwo() { return this.page.locator('.ant-card-meta-title', { hasText: 'testone' }) }
-    get existingProjectJiraQA() { return this.page.locator('.ant-card-meta-title', { hasText: 'jira QA' }) }
-
     get projectsInWorkspace() { return this.page.locator('.ant-list-item') }
-    get projectTitleOnWorkspacePage() { return this.page.locator('.ant-list-item') }
-
-    //archive created project
+    get existingProjectJiraQA() { return this.page.locator('.ant-card-meta-title', { hasText: 'jira QA' }) }
+    
+    //Getters to used to archive created project
     get archiveProjectBtn() { return this.page.locator('[aria-label="minus-circle"] >> nth= -1') }
     get archiveProjectConfirmBtn() { return this.page.locator('button:has-text("OK")') }
+
+    //Getter to dynamically get project
+    getProjectSelector(projectName) {
+        return this.page.locator('.ant-card-meta-title', { hasText: projectName })
+    }
 
     //This is used to achieve created project for clean up
     async archiveProject() {
@@ -99,11 +100,4 @@ export class ProjectPage extends BasePage {
     async waitForProjectCreationNotification() {
         await this.page.waitForSelector('.ant-notification-notice');
     }
-
-  //This is used to click on Jira QA Project
-  async clickOnJiraQAProject() {
-    await this.existingProjectJiraQA.click();
-   // await this.page.waitForSelector('form.ant-form')
-}
-
 }

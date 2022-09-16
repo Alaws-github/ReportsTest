@@ -43,4 +43,3 @@ export const usersData = {
         nameOnCard: 'Test Last'
     }
 };
-

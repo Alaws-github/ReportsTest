@@ -39,6 +39,8 @@ export class TestSuitePage extends BasePage {
   get alertMessage() { return this.page.locator('.ant-alert-message', { hasText: 'Unable to process file!', }) }
   get testCaseTitle() { return this.page.locator('.ant-table-row .ant-typography') }
 
+  //Getter to open test suite
+  get openFolderIcon() { return this.page.locator('.anticon-folder-open') }
 
   async importTestSuite(title, description, fileName) {
     await this.importTestSuiteBtn.click()
@@ -61,6 +63,7 @@ export class TestSuitePage extends BasePage {
     await this.saveEditChanges.click()
     await this.editTestSuiteBtn.waitFor()
   }
+
   async createCustomSuiteWithTitleAndDescription(
     CustomTitle,
     CustomDescription
@@ -139,5 +142,21 @@ export class TestSuitePage extends BasePage {
 
   async getTestCaseTitles() {
     return await this.testCaseTitle.allInnerTexts()
+  }
+
+  async clickTestSuiteWithTestCasesAdmin() {
+    await this.openFolderIcon.nth(2).click()
+  }
+
+  async clickTestSuiteWithTestCasesEditor() {
+    await this.openFolderIcon.nth(1).click()
+  }
+
+  async clickTestSuiteWithoutTestCasesAdmin() {
+    await this.openFolderIcon.nth(3).click()
+  }
+
+  async clickTestSuiteWithoutTestCasesEditor() {
+    await this.openFolderIcon.nth(0).click()
   }
 }

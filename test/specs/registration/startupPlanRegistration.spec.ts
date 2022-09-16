@@ -37,7 +37,6 @@ test.describe('Admin registration @register', () => {
         loginPage,
         registerPage,
     }) => {
-        test.slow();
 
         //Clicks view plans
         await registerPage.clickViewPlan();

@@ -2,7 +2,7 @@ import { test as base, expect } from '@playwright/test'
 import { LoginPage } from '../../pages/login.page'
 import { ProjectPage } from '../../pages/project.page'
 import { usersData } from '../../data/users.data'
-import { OverviewPage } from '../../pages/overview'
+import { OverviewPage } from '../../pages/overview.page'
 import { TestSuitePage } from '../../pages/testsuite.page'
 import { titlesAndDescriptions } from '../../data/testSuiteTitlesDescriptions'
 import { testSuiteData } from '../../data/testSuiteData'
@@ -26,13 +26,13 @@ const test = base.extend<{
   },
 
   overviewPage: async ({ page }, use) => {
-    const overview = new OverviewPage(page)
-    await use(overview)
+    const overviewPage = new OverviewPage(page)
+    await use(overviewPage)
   },
 
   testSuitePage: async ({ page }, use) => {
-    const overview = new TestSuitePage(page)
-    await use(overview)
+    const testSuitePage = new TestSuitePage(page)
+    await use(testSuitePage)
   },
 })
 
@@ -52,7 +52,7 @@ test.describe('Viewer cannot create test suite @test-suite-create', () => {
       usersData.viewerUser.password
     )
     // Choose a project
-    await projectPage.existingProject.click()
+    await projectPage.getProjectSelector('qwat-1224').click()
     await overviewPage.clickTestSuiteTab()
 
     //Checks whether the "New Test Suite button" is enabled or not
@@ -75,7 +75,7 @@ test.describe('Admin can see create suites button @test-suite-create', () => {
       usersData.adminUser.password
     )
     // Choose a project
-    await projectPage.existingProject.click()
+    await projectPage.getProjectSelector('qwat-1224').click()
     await overviewPage.clickTestSuiteTab()
 
     //Checks whether the "New Test Suite button" is enabled or not
@@ -98,7 +98,7 @@ test.describe('Editor can see create suites button @test-suite-create', () => {
       usersData.editorUser.password
     )
     // Choose a project and naviagte to test suite page
-    await projectPage.existingProject.click()
+    await projectPage.getProjectSelector('qwat-1224').click()
     await overviewPage.clickTestSuiteTab()
 
     //Checks whether the "New Test Suite "button is enabled or not
@@ -123,7 +123,7 @@ test.describe(
         usersData.viewerUser.password
       )
       // Choose a project
-      await projectPage.existingProjectTwo.click()
+      await projectPage.getProjectSelector('testone').click()
       await overviewPage.clickTestSuiteTab()
 
       // Choose an existing test suite
@@ -157,7 +157,7 @@ test.describe('Admin can create Test Suite from template @test-suite-create', ()
       usersData.adminUser.password
     )
     // Choose a project
-    await projectPage.existingProject.click()
+    await projectPage.getProjectSelector('qwat-1224').click()
 
     //Choose test suite tab from overview page
     await overviewPage.clickTestSuiteTab()
@@ -211,7 +211,7 @@ test.describe('Editor can create Test Suite from template @test-suite-create', (
       usersData.editorUser.password
     )
     // Choose a project
-    await projectPage.existingProject.click()
+    await projectPage.getProjectSelector('qwat-1224').click()
 
     //Choose test suite tab from overview page
     await overviewPage.clickTestSuiteTab()
@@ -268,7 +268,7 @@ test.describe(
         usersData.editorUser.password
       )
       // Choose a project
-      await projectPage.existingProject.click()
+      await projectPage.getProjectSelector('qwat-1224').click()
 
       //Choose test suite tab from overview page
       await overviewPage.clickTestSuiteTab()
@@ -325,7 +325,7 @@ test.describe(
         usersData.editorUser.password
       )
       // Choose a project
-      await projectPage.existingProject.click()
+      await projectPage.getProjectSelector('qwat-1224').click()
 
       //Choose test suite tab from overview page
       await overviewPage.clickTestSuiteTab()
@@ -379,7 +379,7 @@ test.describe('admin can edit test suite titles/descriptions @test-suite-create'
       usersData.adminUser.password
     )
     // Choose a project/test suite
-    await projectPage.existingProjectTwo.click()
+    await projectPage.getProjectSelector('testone').click()
     await overviewPage.clickTestSuiteTab()
 
     await testSuitePage.editTestSuiteBtn.waitFor()
@@ -415,7 +415,7 @@ test.describe('editor can edit test suite titles/descriptions @test-suite-create
       usersData.editorUser.password
     )
     // Choose a project/test suite
-    await projectPage.existingProjectTwo.click()
+    await projectPage.getProjectSelector('testone').click()
     await overviewPage.clickTestSuiteTab()
 
     await testSuitePage.editTestSuiteBtn.waitFor()

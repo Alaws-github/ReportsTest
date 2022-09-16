@@ -20,7 +20,6 @@ const test = base.extend<{
 })
 
 test.describe('Admin User Authentication @login', () => {
-  test.slow()
   test('Should login the admin user with a registered email and valid password', async ({
     loginPage,
     headerSection,
