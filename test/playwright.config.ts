@@ -10,7 +10,7 @@ if (!baseUrl || !['dev', 'stg', 'prod'].includes(baseUrl)) {
     'No environment specified. Falling back to default environment (stg).'
   )
 
-  baseUrl = 'stg'
+  baseUrl = 'prod'
 
 }
 
