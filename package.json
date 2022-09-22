@@ -92,6 +92,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.25.2",
+    "@types/node": "^18.7.18",
     "aws-sdk": "^2.1139.0",
     "mailinator-client": "^1.0.1",
     "mailslurp-client": "^15.8.1",

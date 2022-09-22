@@ -15,6 +15,14 @@ export const usersData = {
         username: 'beta+qa@qualitywatcher.com',
         password: '78uw*Ctp%LzBMu'
     },
+    prodAdminUser: {
+        username: 'beta+qa@qualitywatcher.com',
+        password: '78uw*Ctp%LzBMu'
+    },
+    jiraUser: {
+        username: 'andrewqualitywatcher@gmail.com',
+        password: 'Andy@8050440'
+    },
     registerUser: {
         firstName: 'test',
         lastName: 'last',
