@@ -62,14 +62,46 @@ test.describe('Admin can Generate, Edit, Share and Delete a Report', () => {
     await newPage.locator('#login-submit').click()
 
     await newPage.locator('button:has-text("Accept")').click()
-
+    await newPage.locator('text=Select matching JIRA project').first().waitFor()
     await newPage.locator('text=Select matching JIRA project').first().click()
     await newPage.locator('text=[AN] AndrewTest').waitFor()
     await newPage.locator('text=[AN] AndrewTest').click()
+
     await newPage.locator('text=Select matching JIRA project').waitFor()
     await newPage.locator('text=Select matching JIRA project').click()
     await newPage.locator('text=[AN] AndrewTest').nth(2).click()
+    
     await newPage.locator('button:has-text("Match")').first().click()
+    await newPage.locator('button:has-text("Match")').nth(1).click()
  })
        
+ test('Should disconnect the jira integration', async ({
+  loginPage,
+  workspaceSettings,
+  context,
+}) => {
+  //Test case-
+  //As an Admin , I should be able to disconnect with jira 
+
+  // Logs in the user
+  await loginPage.login(
+    usersData.prodAdminUser.username,
+    usersData.prodAdminUser.password
+  )
+
+  await workspaceSettings.workspaceSetting.click()
+  expect(workspaceSettings.workspaceSettingsTitle).toContainText('Workspace Settings')
+
+  await workspaceSettings.integrationOpeion.click()
+  expect(workspaceSettings.integrationTitle).toContainText('Manage Integrations')
+  if(await workspaceSettings.jiraDisconnectBtn.isVisible())
+  {
+    workspaceSettings.jiraDisconnectBtn.click()
+    expect(workspaceSettings.disconnectAlert).toContainText('Are you sure you want to disconnect Jira from this workspace?')
+    workspaceSettings.jiraDisconnectYesBtn.click()
+    expect(workspaceSettings.disconnectSuccessMsg).toContainText('You have successfully disconnect this workspace from Jira!')
+  }
+
+})
+
 })

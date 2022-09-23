@@ -12,6 +12,7 @@ export class WorkspaceSettings extends BasePage {
     get jiraConnectBtn() { return this.page.locator('a:has-text("Connect")') }
     get jiraDisconnectBtn() { return this.page.locator('text=Disconnect') }
     get jiraDisconnectYesBtn() { return this.page.locator('button:has-text("Yes")') }
-    
+    get disconnectAlert() { return this.page.locator('text=Are you sure you want to disconnect Jira from this workspace?') }
+    get disconnectSuccessMsg() { return this.page.locator('text=You have successfully disconnect this workspace from Jira!') }
 
   }
