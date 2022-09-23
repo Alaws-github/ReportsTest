@@ -15,7 +15,8 @@ export class ProfileSettingsPage extends BasePage {
     get clickOnCreateBtn() { return this.page.locator('button[type="submit"]') } 
     get verifySuccessMessage() { return this.page.locator('text=Make sure you copy your API key now. You won\'t be able to see it again!') }
     get verifyAPIKeyName() {return this.page.locator('.ant-list-items > .ant-list-item:nth-child(1) > .ant-list-item-meta > .ant-list-item-meta-content > .ant-list-item-meta-title')}
-
+    get apiSuccessMsg() { return this.page.locator('text=Make sure you copy your API key now. You won\'t be able to see it again!') } 
+    get clickOnCopy() { return this.page.locator('[aria-label="Copy"]') } 
         //This method is used to Create an API Key
         async createAPIKey(apiname) {
             await this.createAPIKeybtn.click()

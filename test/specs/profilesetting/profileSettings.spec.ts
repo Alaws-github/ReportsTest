@@ -62,6 +62,9 @@ test.describe('Admin can Create an API Key', () => {
     await profileSettingPage.createAPIKey('Test API Key')
     await (profileSettingPage.verifySuccessMessage).waitFor()
     expect(profileSettingPage.verifySuccessMessage).toContainText('Make sure you copy your API key now')
+    expect(profileSettingPage.apiSuccessMsg).toContainText('Make sure you copy your API key now. You won\'t be able to see it again!')
+    await profileSettingPage.clickOnCopy.click()
     expect(profileSettingPage.verifyAPIKeyName).toContainText('Test API Key')
+    
   })
 })
