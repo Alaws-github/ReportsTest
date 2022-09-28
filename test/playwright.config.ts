@@ -17,7 +17,7 @@ if (!baseUrl || !['dev', 'stg', 'prod'].includes(baseUrl)) {
 
 
 const config: PlaywrightTestConfig = {
-  timeout: 60000 
+  timeout: 70000 
     ,globalTimeout: 700000,
   reporter: [['list']],
   use: {

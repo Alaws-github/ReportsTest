@@ -14,5 +14,12 @@ export class WorkspaceSettings extends BasePage {
     get jiraDisconnectYesBtn() { return this.page.locator('button:has-text("Yes")') }
     get disconnectAlert() { return this.page.locator('text=Are you sure you want to disconnect Jira from this workspace?') }
     get disconnectSuccessMsg() { return this.page.locator('text=You have successfully disconnect this workspace from Jira!') }
-
+    get closeModal() { return this.page.locator('[aria-label="Close"]') }
+    get jiraIntegrationFailedMessage() { return this.page.locator('text=Jira Integration Incomplete') }
+  
+  
+    async pageRefresh() {
+      await this.page.reload()
+  }
+  
   }
